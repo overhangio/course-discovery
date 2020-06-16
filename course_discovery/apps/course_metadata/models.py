@@ -747,6 +747,7 @@ class Course(DraftModelMixin, PkSearchableMixin, CachedMixin, TimeStampedModel):
     )
     authoring_organizations = SortedManyToManyField(Organization, blank=True, related_name='authored_courses')
     sponsoring_organizations = SortedManyToManyField(Organization, blank=True, related_name='sponsored_courses')
+    collaborators = models.ForeignKey(Image, models.CASCADE, null=True, blank=True, related_name='collaborators')
     subjects = SortedManyToManyField(Subject, blank=True)
     prerequisites = models.ManyToManyField(Prerequisite, blank=True)
     level_type = models.ForeignKey(LevelType, models.CASCADE, default=None, null=True, blank=True)
